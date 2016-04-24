@@ -1,16 +1,14 @@
-#test
-#change 2
 import os, sys
 import random
 
-import pygame #@UnresolvedImport
-from pygame.sprite import Sprite #@UnresolvedImport
+import pygame
+from pygame.sprite import Sprite
 
-#Timing
+# Timing
 FALL_DELAY = 500    #number of milliseconds before block falls (block speed)
 LOCK_DELAY = 5      #number of frames a block waits on the ground before being locked
 
-#Lengths
+# Lengths
 GAME_AREA_HEIGHT, GAME_AREA_WIDTH = 640, 400
 BLOCK_MEDIAN = 20
 BLOCK_WIDTH = BLOCK_MEDIAN * 2
@@ -19,14 +17,14 @@ NUM_COLUMNS = GAME_AREA_WIDTH / BLOCK_WIDTH
 NUM_ROWS = GAME_AREA_HEIGHT / BLOCK_WIDTH
 CENTER = GAME_AREA_WIDTH / 2 - BLOCK_WIDTH
 
-#Directions
+# Directions
 UP      = 1
 DOWN    = 2
 LEFT    = 3
 RIGHT   = 4
 ROTATE  = 5
 
-#Colors
+# Colors
 BLUE = 0,61,245
 GREEN = 51,255,102
 RED = 255,51,102
@@ -43,7 +41,7 @@ BG_COLOR = 150, 150, 80
 LINE_COLOR = BLACK
 
 
-#Game Globals
+# Game Globals
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((GAME_AREA_WIDTH, GAME_AREA_HEIGHT), 0, 32)
 
@@ -304,7 +302,7 @@ class Tetris():
                 self.occupiedGrid[x].append( None )
         
         font = pygame.font.Font(None, 36)
-        self.text = font.render("Hello There", 1, (10, 10, 10))
+        self.text = font.render("", 1, (10, 10, 10))
         self.textpos = self.text.get_rect()
         self.textpos.centerx = screen.get_rect().centerx
     
