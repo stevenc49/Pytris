@@ -44,7 +44,7 @@ LINE_COLOR = BLACK
 # Game Globals
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((GAME_AREA_WIDTH, GAME_AREA_HEIGHT), 0, 32)
-
+cheats = False
 
 class Square:
     def __init__(self, color, pos):
@@ -430,6 +430,7 @@ class Tetris():
     def mainLoop(self):
         
         while True:
+
             clock.tick(10) #caps the number of iterations in this loop per second
 
             for event in pygame.event.get():
@@ -451,5 +452,11 @@ class Tetris():
 
 if __name__ == '__main__':
     
+    if len(sys.argv)>1 and sys.argv[1] == 'cheats=enabled':
+        print 'Cheats are on'
+        cheats = True
+    else:
+        print 'Cheats are off'
+
     tetris = Tetris()
     tetris.mainLoop()
