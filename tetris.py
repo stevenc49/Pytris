@@ -310,7 +310,10 @@ class Tetris():
         keys = pygame.key.get_pressed()
         
         if keys[pygame.K_UP]:
-            focusedBlock.moveUp(occupiedGrid)
+            if cheats:
+                focusedBlock.moveUp(occupiedGrid)
+            else:
+                focusedBlock.rotate(occupiedGrid)
         if keys[pygame.K_DOWN]:
             focusedBlock.moveDown(occupiedGrid)
         if keys[pygame.K_LEFT]:
@@ -318,7 +321,8 @@ class Tetris():
         if keys[pygame.K_RIGHT]:
             focusedBlock.moveRight(occupiedGrid)
         if keys[pygame.K_r]:
-            focusedBlock.rotate(occupiedGrid)
+            if cheats:
+                focusedBlock.rotate(occupiedGrid)
         if keys[pygame.K_s]:
             focusedBlock.settle(occupiedGrid)
             self.focusedBlock = self.getRandomBlock()
